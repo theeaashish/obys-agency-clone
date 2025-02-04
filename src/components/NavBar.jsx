@@ -5,6 +5,47 @@ function NavBar({ animateNav }) {
   const navRef = useRef(null);
 
   useEffect(() => {
+    const navItems = navRef.current.querySelectorAll("h3, h4, svg");
+
+    const handleMouseMove = (e) => {
+      const { left, top, width, height } = e.target.getBoundingClientRect();
+      const x = e.clientX - (left + width / 2);
+      const y = e.clientY - (top + height / 2);
+
+      gsap.to(e.target, {
+        x: x * 0.3,
+        y: y * 0.3,
+        scale: 1.1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = (e) => {
+      gsap.to(e.target, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.5)",
+      });
+    };
+
+    navItems.forEach((item) => {
+      item.addEventListener("mousemove", handleMouseMove);
+      item.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      navItems.forEach((item) => {
+        item.removeEventListener("mousemove", handleMouseMove);
+        item.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
+
+
+  useEffect(() => {
     if (animateNav) {
       const navItems = navRef.current.querySelectorAll("h3, h4, svg");
 
@@ -105,7 +146,9 @@ function NavBar({ animateNav }) {
       </div>
       <div className="flex text-white gap-10 nav-crv">
         {["Works", "About", "Contacts"].map((item, index) => (
-          <h4 className="cursor-pointer" key={index}>{item}</h4>
+          <h4 className="cursor-pointer" key={index}>
+            {item}
+          </h4>
         ))}
       </div>
     </div>
