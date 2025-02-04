@@ -24,6 +24,7 @@ function Loader() {
   useEffect(() => {
     if (count >= 100)
       gsap.to("#main", {
+        display: 'none',
         opacity: 0,
         duration: 1,
         ease: "power2.out",
@@ -42,7 +43,7 @@ function Loader() {
   return (
     <div
       id="main"
-      className="bg-[var(--loader-bg)] text-white h-[100vh] w-[100vw] flex flex-col  justify-center px-25 z-100"
+      className="bg-[var(--loader-bg)] fixed text-white h-[100vh] w-[100vw] flex flex-col  justify-center px-25 z-100"
     >
       <div className="flex flex-col -space-y-[3vw] ">
         <div className="Loader size-fit overflow-hidden flex items-start justify-center gap-18 px-20">
