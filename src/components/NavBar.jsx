@@ -1,6 +1,7 @@
 import React from "react";
 
 function NavBar() {
+
   return (
     <div className="min-h-32 flex items-center justify-between px-20">
       <div className="flex items-center gap-57">
@@ -71,7 +72,7 @@ function NavBar() {
           </svg>
         </div>
         <div className="text-white nav-crv pt-11">
-          <h3 className="leading-4 text-base">
+          <h3 id="cool" className="leading-4 text-base">
             Obys— <br />
             Creative <br />
             Design <br />

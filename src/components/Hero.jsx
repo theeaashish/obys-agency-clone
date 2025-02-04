@@ -1,6 +1,7 @@
 import React from "react";
 
 function Hero() {
+
   return (
     <div>
       <div className="text-white flex justify-center py-20 px-25 z-100">

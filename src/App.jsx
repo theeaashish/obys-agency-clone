@@ -1,10 +1,12 @@
 import React, {useEffect} from "react";
 import Loader from "./components/Loader";
 import NavBar from "./components/NavBar";
-import Hero from "./components/hero";
+import Hero from "./components/Hero";
 import { gsap } from "gsap";
 
 function App() {
+
+
   useEffect(() => {
     const handleMouseMove = (dets) => {
       gsap.to('.crsr', {
@@ -23,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[var(--main-bg)]">
+    <div className="bg-[var(--main-bg)] min-h-screen">
       <Loader />
       <NavBar />
       <Hero />
