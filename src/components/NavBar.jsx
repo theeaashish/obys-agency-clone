@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
-function NavBar() {
+function NavBar({ animateNav }) {
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (animateNav) {
+      const navItems = navRef.current.querySelectorAll("h3, h4, svg");
+
+      gsap.fromTo(
+        navItems,
+        { y: -50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [animateNav]);
 
   return (
-    <div className="min-h-32 flex items-center justify-between px-20">
+    <div
+      ref={navRef}
+      className="min-h-32 flex items-center justify-between px-20"
+    >
       <div className="flex items-center gap-57">
         <div className="flex items-center gap-10">
           <svg
-            className="menu-opener__square invert"
+            className="menu-opener__square invert cursor-pointer"
             width="12"
             height="12"
             viewBox="0 0 12 12"
@@ -82,7 +105,7 @@ function NavBar() {
       </div>
       <div className="flex text-white gap-10 nav-crv">
         {["Works", "About", "Contacts"].map((item, index) => (
-          <h4 key={index}>{item}</h4>
+          <h4 className="cursor-pointer" key={index}>{item}</h4>
         ))}
       </div>
     </div>

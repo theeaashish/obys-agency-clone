@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { gsap } from "gsap";
+import gsap from "gsap";
 
-function Loader() {
+function Loader({ setLoaderComplete }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function Loader() {
         duration: 1,
         stagger: 0.2,
         ease: "power2.out",
-        delay: 0.5,
+        // delay: 0.5,
       }
     );
   }, []);
@@ -24,13 +24,14 @@ function Loader() {
   useEffect(() => {
     if (count >= 100)
       gsap.to("#main", {
-        display: 'none',
+        display: "none",
         opacity: 0,
         duration: 1,
         ease: "power2.out",
+        onComplete: () => setLoaderComplete,
       });
     return;
-  }, [count]);
+  }, [count, setLoaderComplete]);
 
   useEffect(() => {
     if (count >= 100) return;
