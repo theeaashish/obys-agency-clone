@@ -5,7 +5,7 @@ function NavBar({ animateNav }) {
   const navRef = useRef(null);
 
   useEffect(() => {
-    const navItems = navRef.current.querySelectorAll("h3, h4, svg");
+    const navItems = navRef.current.querySelectorAll("h3, h4");
 
     const handleMouseMove = (e) => {
       const { left, top, width, height } = e.target.getBoundingClientRect();
@@ -13,9 +13,9 @@ function NavBar({ animateNav }) {
       const y = e.clientY - (top + height / 2);
 
       gsap.to(e.target, {
-        x: x * 0.3,
-        y: y * 0.3,
-        scale: 1.1,
+        x: x * 0.8,
+        y: y * 0.8,
+        scale: 1.3,
         duration: 0.3,
         ease: "power2.out",
       });

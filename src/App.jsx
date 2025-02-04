@@ -2,9 +2,23 @@ import React, { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
-import gsap  from "gsap";
+import gsap from "gsap";
+import LocomotiveScroll from "locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
 function App() {
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector(".main-container"), 
+      smooth: true, 
+      lerp: 0.1, 
+    });
+
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
+
   const [loaderComplete, setLoaderComplete] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -30,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[var(--main-bg)] min-h-screen">
+    <div className="main-container bg-[var(--main-bg)] min-h-screen">
       {!loaderComplete && <Loader />}
 
       <Loader />
