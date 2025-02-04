@@ -80,8 +80,9 @@ function NavBar() {
         </div>
       </div>
       <div className="flex text-white gap-10 nav-crv">
-        {['Works', 'About', 'Contacts'].map((item, index) => <h4 key={index}>{item}</h4>)
-        }
+        {["Works", "About", "Contacts"].map((item, index) => (
+          <h4 key={index}>{item}</h4>
+        ))}
       </div>
     </div>
   );

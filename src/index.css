@@ -29,6 +29,20 @@
     font-family: 'Silk italic';
 }
 
-.nav-crv h3 {
+.nav-crv {
     font-family: 'Plain Light';
+}
+.crsr {
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  overflow: scroll;  
+  margin: 0;
 }
