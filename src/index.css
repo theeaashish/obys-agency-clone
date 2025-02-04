@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+    --main-bg: #151515;
+    --loader-bg: #0b0b0b;
+}
+
+
+.Loader h1 {
+    font-family: 'Plain Regular';
+}
+
+.Loader h2 {
+    font-family: 'Silk Serif';
+}
