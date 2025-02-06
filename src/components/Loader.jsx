@@ -37,7 +37,7 @@ function Loader({ setLoaderComplete }) {
     if (count >= 100) return;
     const interval = setInterval(() => {
       setCount((prevCount) => prevCount + 1);
-    }, 25);
+    }, 28);
     return () => clearInterval(interval);
   }, [count]);
 

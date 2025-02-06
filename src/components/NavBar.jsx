@@ -146,7 +146,7 @@ function NavBar({ animateNav }) {
       </div>
       <div className="flex text-white gap-10 nav-crv">
         {["Works", "About", "Contacts"].map((item, index) => (
-          <h4 className="cursor-pointer" key={index}>
+          <h4 key={index}>
             {item}
           </h4>
         ))}

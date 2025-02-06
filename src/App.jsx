@@ -9,9 +9,9 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 function App() {
   useEffect(() => {
     const scroll = new LocomotiveScroll({
-      el: document.querySelector(".main-container"), 
-      smooth: true, 
-      lerp: 0.1, 
+      el: document.querySelector(".main-container"),
+      smooth: true,
+      lerp: 0.1,
     });
 
     return () => {
